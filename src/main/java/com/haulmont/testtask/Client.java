@@ -8,6 +8,20 @@ public class Client {
     private String email;
     private String passport;
 
+    public Client(String surName, String foreName, String patronymic, String telephone, String email, String passport) {
+        this.surName = surName;
+        this.foreName = foreName;
+        this.patronymic = patronymic;
+        this.telephone = telephone;
+        this.email = email;
+        this.passport = passport;
+    }
+
+    @Override
+    public String toString() {
+        return surName + " " + foreName + " " + patronymic + " " + passport;
+    }
+
     public String getSurName() {
         return surName;
     }
