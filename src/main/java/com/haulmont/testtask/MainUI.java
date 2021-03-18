@@ -5,6 +5,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
+
 @Theme(ValoTheme.THEME_NAME)
 public class MainUI extends UI {
 
@@ -15,6 +16,7 @@ public class MainUI extends UI {
         layout.setMargin(true);
 
         layout.addComponent(new Label("Main UI"));
+        layout.addComponent(new Button("Test"));
 
         setContent(layout);
     }
