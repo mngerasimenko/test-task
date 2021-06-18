@@ -1,12 +1,30 @@
-package com.haulmont.testtask;
+package com.haulmont.testtask.domain;
 
+import javax.persistence.*;
+
+@Table(name = "bk_client")
+@Entity
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "client_id")
+    private long clientId;
+    @Column(name = "sur_name")
     private String surName;
+    @Column(name = "fore_name")
     private String foreName;
+    @Column(name = "patronymic")
     private String patronymic;
+    @Column(name = "telephone")
     private String telephone;
+    @Column(name = "email")
     private String email;
+    @Column(name = "passport")
     private String passport;
+
+    public Client() {
+    }
 
     public Client(String surName, String foreName, String patronymic, String telephone, String email, String passport) {
         this.surName = surName;
@@ -17,9 +35,12 @@ public class Client {
         this.passport = passport;
     }
 
-    @Override
-    public String toString() {
-        return surName + " " + foreName + " " + patronymic + " " + passport;
+    public long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
     }
 
     public String getSurName() {

@@ -1,4 +1,7 @@
-package com.haulmont.testtask;
+package com.haulmont.testtask.creditoffers;
+
+import com.haulmont.testtask.domain.Client;
+import com.haulmont.testtask.domain.Credit;
 
 public class CreditOffer {
     private Client client;

@@ -1,4 +1,4 @@
-package com.haulmont.testtask;
+package com.haulmont.testtask.creditoffers;
 
 import java.time.LocalDate;
 
