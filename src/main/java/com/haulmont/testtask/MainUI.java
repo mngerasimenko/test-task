@@ -30,9 +30,10 @@ public class MainUI extends UI {
             }
 
             try {
-                Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/db_bank", "SA", "");
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                Connection c = DriverManager.getConnection("jdbc:hsqldb:file:db_bank", "SA", "");
+                
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         });
 
