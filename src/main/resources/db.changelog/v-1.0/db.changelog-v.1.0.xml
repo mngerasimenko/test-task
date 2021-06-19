@@ -6,5 +6,9 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <include file="01-changeset-client-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-credit-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-schedule-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-bank-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-offer-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
