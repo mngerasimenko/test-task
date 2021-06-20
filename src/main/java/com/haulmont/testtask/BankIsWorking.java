@@ -14,8 +14,8 @@ public class BankIsWorking {
         String telephone = "8 938 123 11 22";
         String email = "my_mail@mail.ru";
         String passport = "8422 4875602";
-        Client client = new Client(surName, foreName, patronymic, telephone, email, passport);
-        bank.addClient(client);
+        //Client client = new Client(surName, foreName, patronymic, telephone, email, passport);
+        //bank.addClient(client);
 
         surName = "Ригованов";
         foreName = "Максим";
@@ -23,8 +23,8 @@ public class BankIsWorking {
         telephone = "8 905 662 15 73";
         email = "mynew_mail@mail.ru";
         passport = "6655 23456788";
-        client = new Client(surName, foreName, patronymic, telephone, email, passport);
-        bank.addClient(client);
+       // client = new Client(surName, foreName, patronymic, telephone, email, passport);
+       // bank.addClient(client);
 
 
         bank.addCredit(new Credit(1_000_000.00, 12.3));

@@ -10,12 +10,8 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
     private long clientId;
-    @Column(name = "sur_name")
-    private String surName;
-    @Column(name = "fore_name")
-    private String foreName;
-    @Column(name = "patronymic")
-    private String patronymic;
+    @Column(name = "fio")
+    private String fio;
     @Column(name = "telephone")
     private String telephone;
     @Column(name = "email")
@@ -26,10 +22,10 @@ public class Client {
     public Client() {
     }
 
-    public Client(String surName, String foreName, String patronymic, String telephone, String email, String passport) {
-        this.surName = surName;
-        this.foreName = foreName;
-        this.patronymic = patronymic;
+
+    public Client(int clientId, String fio, String telephone, String email, String passport) {
+        this.clientId = clientId;
+        this.fio = fio;
         this.telephone = telephone;
         this.email = email;
         this.passport = passport;
@@ -41,30 +37,6 @@ public class Client {
 
     public void setClientId(long clientId) {
         this.clientId = clientId;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public void setSurName(String surName) {
-        this.surName = surName;
-    }
-
-    public String getForeName() {
-        return foreName;
-    }
-
-    public void setForeName(String foreName) {
-        this.foreName = foreName;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
     }
 
     public String getTelephone() {
@@ -89,5 +61,24 @@ public class Client {
 
     public void setPassport(String passport) {
         this.passport = passport;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientId=" + clientId +
+                ", fio='" + fio + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", passport='" + passport + '\'' +
+                '}';
     }
 }
