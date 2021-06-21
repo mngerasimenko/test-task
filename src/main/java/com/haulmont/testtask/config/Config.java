@@ -11,6 +11,7 @@ public abstract class Config {
     public static final String DB_PASSWORD = "db.password";
     public static final String DB_DRIVER = "db.driver";
     public static final String DB_LIMIT = "db.limit";
+    public static final String DB_TEST_URL = "db.test.url";
 
     private static final Properties properties = new Properties();
 

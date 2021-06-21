@@ -15,18 +15,29 @@ public class ConnectionBuilder {
 
     private static ConnectionBuilder instance;
     private Connection connection;
+    private static String urlDB;
 
     private ConnectionBuilder() throws SQLException {
         this.connection = DriverManager.getConnection(
-                Config.getProperty(Config.DB_URL),
+                urlDB,
                 Config.getProperty(Config.DB_LOGIN),
                 Config.getProperty(Config.DB_PASSWORD)
         );
         logger.info("connection");
     }
 
+
     public static ConnectionBuilder getConnectionBuilder() throws SQLException {
         if (instance == null) {
+            ConnectionBuilder.urlDB = Config.getProperty(Config.DB_URL);
+            instance = new ConnectionBuilder();
+        }
+        return instance;
+    }
+
+    public static ConnectionBuilder getTestConnectionBuilder() throws SQLException {
+        if (instance == null) {
+            ConnectionBuilder.urlDB = Config.getProperty(Config.DB_TEST_URL);
             instance = new ConnectionBuilder();
         }
         return instance;
@@ -35,6 +46,5 @@ public class ConnectionBuilder {
     public Connection getConnection() {
         return connection;
     }
-
 
 }

@@ -61,7 +61,7 @@ public class ClientDaoController implements DaoController<Client, Integer>{
             stmt.setInt(1, Integer.parseInt(Config.getProperty(Config.DB_LIMIT)));
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Client client = new Client(rs.getInt("client_id"), rs.getString("fio")
+                Client client = new Client(rs.getLong("client_id"), rs.getString("fio")
                         , rs.getString("telephone"), rs.getString("email")
                         , rs.getString("passport"));
                 System.out.println(client);
