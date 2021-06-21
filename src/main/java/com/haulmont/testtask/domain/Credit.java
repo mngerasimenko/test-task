@@ -18,6 +18,8 @@ public class Credit {
     private double percent;
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "credit")
     private List<Bank> banks;
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "credit")
+    private List<Offer> offers;
 
 
     public Credit() {
@@ -58,5 +60,13 @@ public class Credit {
 
     public void setBanks(List<Bank> banks) {
         this.banks = banks;
+    }
+
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
     }
 }

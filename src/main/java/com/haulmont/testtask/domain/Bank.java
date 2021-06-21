@@ -1,7 +1,7 @@
 package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Table(name = "bk_bank")
 @Entity
@@ -41,4 +41,5 @@ public class Bank {
     public void setCredit(Client credit) {
         this.credit = credit;
     }
+
 }

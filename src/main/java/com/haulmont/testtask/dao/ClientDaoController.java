@@ -52,6 +52,14 @@ public class ClientDaoController implements DaoController<Client, Integer>{
 
     }
 
+
+    public List<Client> getAll2() throws DaoException {
+
+
+
+      return null;
+    }
+
     @Override
     public List<Client> getAll() throws DaoException {
         List<Client> resultList = new LinkedList<>();

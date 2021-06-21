@@ -5,6 +5,9 @@ import com.haulmont.testtask.exception.DaoException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -37,7 +40,16 @@ public class ClientDaoControllerTest {
 
     @org.junit.Test
     public void getAll() throws DaoException {
-        List<Client> clientList = cdc.getAll();
+        //List<Client> clientList = cdc.getAll();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+        EntityManager em = emf.createEntityManager();
+
+
+        List clientList = em.createQuery("FROM Client ").getResultList();
+        clientList.forEach(c -> System.out.println(c));
+
+        em.close();
+
         Assert.assertTrue(clientList.size() == 3);
     }
 }

@@ -5,8 +5,8 @@ import java.util.List;
 
 @Table(name = "bk_client")
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = )
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "client_id")
 public class Client {
 
     @Id
@@ -23,6 +23,8 @@ public class Client {
     private String passport;
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "client")
     private List<Bank> banks;
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "client")
+    private List<Offer> offers;
 
     public Client() {
     }
@@ -84,6 +86,14 @@ public class Client {
         this.banks = banks;
     }
 
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -92,6 +102,8 @@ public class Client {
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
                 ", passport='" + passport + '\'' +
+                ", banks=" + banks +
+                ", offers=" + offers +
                 '}';
     }
 }
