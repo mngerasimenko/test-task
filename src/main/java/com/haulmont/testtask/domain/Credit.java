@@ -3,6 +3,7 @@ package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Table(name = "bk_credit")
 @Entity
@@ -11,10 +12,10 @@ public class Credit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "credit_id")
-    private Long creditId;
-    @Column(name = "limit")
+    private UUID creditId;
+    @Column(name = "limit_am")
     private double limit;
-    @Column(name = "percent")
+    @Column(name = "percent_am")
     private double percent;
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "credit")
     private List<Bank> banks;
@@ -30,11 +31,11 @@ public class Credit {
         this.percent = percent;
     }
 
-    public Long getCreditId() {
+    public UUID getCreditId() {
         return creditId;
     }
 
-    public void setCreditId(Long creditId) {
+    public void setCreditId(UUID creditId) {
         this.creditId = creditId;
     }
 
@@ -68,5 +69,14 @@ public class Credit {
 
     public void setOffers(List<Offer> offers) {
         this.offers = offers;
+    }
+
+    @Override
+    public String toString() {
+        return "Credit{" +
+                "creditId=" + creditId +
+                ", limit=" + limit +
+                ", percent=" + percent +
+                '}';
     }
 }

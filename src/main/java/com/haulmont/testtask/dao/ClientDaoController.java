@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 public class ClientDaoController implements DaoController<Client, Integer>{
 
@@ -69,7 +70,7 @@ public class ClientDaoController implements DaoController<Client, Integer>{
             stmt.setInt(1, Integer.parseInt(Config.getProperty(Config.DB_LIMIT)));
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Client client = new Client(rs.getLong("client_id"), rs.getString("fio")
+                Client client = new Client(rs.getObject("client_id", UUID.class), rs.getString("fio")
                         , rs.getString("telephone"), rs.getString("email")
                         , rs.getString("passport"));
                 System.out.println(client);

@@ -2,6 +2,7 @@ package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Table(name = "bk_client")
 @Entity
@@ -12,7 +13,7 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
-    private Long clientId;
+    private UUID clientId;
     @Column(name = "fio")
     private String fio;
     @Column(name = "telephone")
@@ -30,7 +31,7 @@ public class Client {
     }
 
 
-    public Client(Long clientId, String fio, String telephone, String email, String passport) {
+    public Client(UUID clientId, String fio, String telephone, String email, String passport) {
         this.clientId = clientId;
         this.fio = fio;
         this.telephone = telephone;
@@ -38,11 +39,11 @@ public class Client {
         this.passport = passport;
     }
 
-    public Long getClientId() {
+    public UUID getClientId() {
         return clientId;
     }
 
-    public void setClientId(Long clientId) {
+    public void setClientId(UUID clientId) {
         this.clientId = clientId;
     }
 

@@ -2,6 +2,7 @@ package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Table(name = "bk_offer")
 @Entity
@@ -10,7 +11,7 @@ public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "offer_id")
-    private Long offerId;
+    private UUID offerId;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
@@ -23,11 +24,11 @@ public class Offer {
             mappedBy = "offer")
     private List<Schedule> schedules;
 
-    public Long getOfferId() {
+    public UUID getOfferId() {
         return offerId;
     }
 
-    public void setOfferId(Long offerId) {
+    public void setOfferId(UUID offerId) {
         this.offerId = offerId;
     }
 

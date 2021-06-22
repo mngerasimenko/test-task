@@ -2,6 +2,7 @@ package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Table(name = "bk_schedule")
 @Entity
@@ -10,20 +11,24 @@ public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
-    private Long scheduleId;
+    private UUID scheduleId;
+    @Column(name = "date")
     private LocalDateTime date;
+    @Column(name = "payment_am")
     private Double paymentAm;
+    @Column(name = "body_am")
     private Double bodyAm;
+    @Column(name = "percent_am")
     private Double percentAm;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "offer_id")
     private Offer offer;
 
-    public Long getScheduleId() {
+    public UUID getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(Long scheduleId) {
+    public void setScheduleId(UUID scheduleId) {
         this.scheduleId = scheduleId;
     }
 

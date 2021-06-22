@@ -1,6 +1,7 @@
 package com.haulmont.testtask.domain;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 
 @Table(name = "bk_bank")
@@ -10,19 +11,19 @@ public class Bank {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bank_id")
-    private Long bankId;
+    private UUID bankId;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_id")
-    private Client credit;
+    private Credit credit;
 
-    public Long getBankId() {
+    public UUID getBankId() {
         return bankId;
     }
 
-    public void setBankId(Long bankId) {
+    public void setBankId(UUID bankId) {
         this.bankId = bankId;
     }
 
@@ -34,11 +35,11 @@ public class Bank {
         this.client = client;
     }
 
-    public Client getCredit() {
+    public Credit getCredit() {
         return credit;
     }
 
-    public void setCredit(Client credit) {
+    public void setCredit(Credit credit) {
         this.credit = credit;
     }
 

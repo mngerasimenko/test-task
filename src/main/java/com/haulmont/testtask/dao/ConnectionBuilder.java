@@ -23,7 +23,7 @@ public class ConnectionBuilder {
                 Config.getProperty(Config.DB_LOGIN),
                 Config.getProperty(Config.DB_PASSWORD)
         );
-        logger.info("connection");
+        logger.info("connection susses", connection);
     }
 
 
