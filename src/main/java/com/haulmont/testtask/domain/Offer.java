@@ -12,7 +12,7 @@ public class Offer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "offer_id")
     private UUID offerId;
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)

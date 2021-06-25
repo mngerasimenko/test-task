@@ -4,7 +4,6 @@ import com.haulmont.testtask.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -25,7 +24,6 @@ public class ConnectionBuilder {
         );
         logger.info("connection susses", connection);
     }
-
 
     public static ConnectionBuilder getConnectionBuilder() throws SQLException {
         if (instance == null) {

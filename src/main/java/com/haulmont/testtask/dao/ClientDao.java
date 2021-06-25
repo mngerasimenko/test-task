@@ -2,22 +2,23 @@ package com.haulmont.testtask.dao;
 
 import com.haulmont.testtask.domain.Client;
 import com.haulmont.testtask.exception.DaoException;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.UUID;
 
-@Component
-public class ClientDao implements DaoController{
+@Component("clientDao")
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+public class ClientDao implements DaoController<Client, UUID>{
 
+    @PersistenceContext
     private EntityManager entityManager;
-
-    public ClientDao() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-        entityManager = factory.createEntityManager();
-    }
 
     @Override
     public List findItem(String patten) {
@@ -25,17 +26,17 @@ public class ClientDao implements DaoController{
     }
 
     @Override
-    public Object getItem(Object id) {
+    public Client getItem(UUID id) {
         return null;
     }
 
     @Override
-    public Object insertItem(Object item) {
+    public UUID insertItem(Client item) {
         return null;
     }
 
     @Override
-    public void deleteItem(Object id) {
+    public void deleteItem(UUID id) {
 
     }
 

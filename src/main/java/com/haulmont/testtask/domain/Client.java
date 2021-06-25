@@ -22,7 +22,7 @@ public class Client {
     private String email;
     @Column(name = "passport")
     private String passport;
-    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER, mappedBy = "client")
     private List<Bank> banks;
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "client")
     private List<Offer> offers;
@@ -104,7 +104,7 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", passport='" + passport + '\'' +
                 ", banks=" + banks +
-                ", offers=" + offers +
+              //  ", offers=" + offers +
                 '}';
     }
 }

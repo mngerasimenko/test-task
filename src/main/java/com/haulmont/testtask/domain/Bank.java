@@ -12,7 +12,7 @@ public class Bank {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bank_id")
     private UUID bankId;
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
